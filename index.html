@@ -338,6 +338,21 @@
                 </div>
             </div>
         </div>
+                <div id="container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: '页面 ID', // 可选。默认为 location.href
+  owner: 'jinsenhao',
+  repo: 'jinsenhao.github.io',
+  oauth: {
+    client_id: 'cfe8bbff2723e16742fd',
+    client_secret: 'b1dd47335c2f504a1dcb848e0e605c6a4ef81686',
+  },
+})
+gitment.render('container')
+</script>
         <p class="center beian">© JSH | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">浙ICP备16004270号</a></p>
 
     </div>
