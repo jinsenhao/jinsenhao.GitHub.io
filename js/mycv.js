@@ -58,7 +58,7 @@ $(function() {
     });
     //我的作品
     $("#mypro").bind("click", function () {
-        $(".nav-ul li:nth-child(3)").click();
+        $(".nav-ul li:nth-child(6)").click();
     });
     //导航点击
     $(".nav-ul li").bind("click", function () {
