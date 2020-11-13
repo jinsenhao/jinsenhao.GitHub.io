@@ -1,5 +1,5 @@
 # hexo-theme-gal    
-# 配置说明
+# 配置说明2
 
     git clone https://github.com/ZEROKISEKI/hexo-theme-gal.git themes/gal
     
