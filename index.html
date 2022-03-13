@@ -1,306 +1,145 @@
-
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="keywords" content="米奇妙妙屋,金森豪,米奇妙妙屋工具箱,Redspite,金森豪个人博客">
-    <meta name="description" content="米奇妙妙屋">
-    <meta name="author" content="金森豪,Redspite">
-    <title>米奇妙妙屋</title>
-
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/base.css" type="text/css">
-    <link rel="stylesheet" href="css/cv.css">
-    <!--[if lte IE 9]>
-    <script type="text/javascript">
-        window.location = "http://www.xiaoyuezhang.com/error.html"
-    </script>
-    <![endif]-->
-    <!-- senhaojin.com Baidu tongji analytics -->
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?f87e415f9d1f6111b1d34c5f96927d9b";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
-</head>
-
-<body>
-    <div class="content ">
-        <div class="cv-container">
-			<script type="text/javascript" src="starry_sky.js"></script><canvas width="1747" height="818" style="position: fixed; top: 0px; left: 0px; z-index: -1; opacity: 1;"></canvas>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="js/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/xlsx.core.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/ys.js" type="text/javascript" charset="utf-8"></script>
+		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/ys.css" rel="stylesheet" />
+		<style>
+			.alert {
+				width: 20%;
+				text-align: center;
+				color: #fff;
+				margin: 10px auto;s
+				border-radius: 5px;
+				line-height: 20px;
+				cursor: pointer;
+				background: #4ab819;
+			}
 			
-            <div id="section1" class="section active">
-                <div id="top" title="顶部">
-                    <img src="image/top.png" alt="回到顶部">
-                </div>
-                <div class="myIntro">
-                    <h1 class="fade"><a target="_blank" href="https://www.amazon.cn/dp/B08F7PTF53/ref=sr_1_1?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&amp;dchild=1&amp;keywords=quest+2&amp;qid=1613894772&amp;sr=8-1&_encoding=UTF8&tag=jinsenhao-23&linkCode=ur2&linkId=385c8589489c283df007518e468bb7ef&camp=536&creative=3200">哈哈哈</a></h1>
-                    <h3 class="fade">只是一个无人问津的角落</h3>
-                    <span class="active fade" id="abMe">工具箱</span>
-                    <span id="mypro" class="fade">留言板</span>
-                </div>
-                <ul class="bg-img">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
-            </div>
+			.confirm {
+				background: #196fb8;
+			}
+			
+			.open {
+				background: #f88408;
+			}
+			
+			.toast {
+				background: #f80851;
+			}
+			
+			.later {
+				background: #a9a9a9;
+			}
+		</style>
+	</head>
+	<body style="text-align: center;">
+		<!-- 将文件选择框隐藏 -->
+		<input type="file" id="file" onchange="getFile()" style="display: none;" accept=".xls,.xlsx" />
+		<div>问题件扣除: <input type="text" id="wt" />*70%</div> 
+		<button id="btn">获取本地excel数据</button>
+		<button  class="alert" onclick="getLastTd()">开始计算</button>
+		<div style="width: 100%;text-align: center;margin-top: 10px;" 
+		id="tableContainer">
+		</div>
+	</body>
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script src="js/ui.js"></script>
+	<script type="text/javascript">
+		//读取本地文件
+		function readWorkbookFromLocalFile(file, callback) {
+			var reader = new FileReader();
+			reader.readAsBinaryString(file);
+			reader.onload = function(e) {
+				var data = e.target.result;
+				var workbook = XLSX.read(data, {
+					type: 'binary'
+				});
+				if (callback) callback(workbook);
+			};
+		}
 
-            <div id="section2" class="section">
-                <!-- 导航条-->
-                <div id="nav-bar" class="bar">
-                    <div class="container">
-                        <a href="drip.html">
-                  <a href="drip.html">
-                            <div class="fl">JSH's 博客</div>
-                            </a>
-                        </a>
-                        <ul class="fr nav-ul">
-							<li>工具人</li>
-							<li>唐老鸭</li>
-							<li>米奇</li>
-							<li>米妮</li>
-							<li>黛丝</li>
-							<li>留言板</li>
-                        </ul>
-                        <div class="fr more-nav">
-                            <img src="image/more.png" alt="更多">
-                        </div>
-                    </div>
-                    <ul class="nav-ul nav-xs-ul">
-						<li>工具人</li>
-                        <li>唐老鸭</li>
-                        <li>米奇</li>
-                        <li>米妮</li>
-                        <li>黛丝</li>
-                        <li>留言板</li>
-                    </ul>
-                </div>
+		function getFile() {
+			let files = $('#file').prop('files');
+			if (files) {
+				readWorkbookFromLocalFile(files[0], (workbook) => {
+					createTables(workbook.Sheets)
+				});
+			}
+		}
+		//将sheets转换为表格
+		function createTables(sheets) {
+			let div = $("<div></div>")
+			//遍历每一张sheet表格
+			for (let i in sheets) {
+				//转换HTML是一个数组对象，分为三部分:meta,title,table
+				let table = $(XLSX.utils.sheet_to_html(sheets[i]))[2];
+				let $table = $(table)
+				$table.attr("width","80%")
+				$table.attr("border","1")
+				$table.attr("align","center")
+				$table.css({
+					"margin":"5%"
+				})
+				$("#tableContainer").append($table)
+			}
+		}
+		$(function() {
+			$("#btn").click(() => {
+				//手动触发文本输入框
+				$("#file").trigger("click");
+			})
+		})
+		 function toDecimal(x) { 
+		            var f = parseFloat(x); 
+		            if (isNaN(f)) { 
+		                return; 
+		            } 
+		            f = Math.round(x*100)/100; 
+		            return f; 
+		        } 
+		 
+		 
+		        //制保留2位小数，如：2，会在2后面补上00.即2.00 
+		        function toDecimal2(x) { 
+		            var f = parseFloat(x); 
+		            if (isNaN(f)) { 
+		                return false; 
+		            } 
+		            var f = Math.round(x*100)/100; 
+		            var s = f.toString(); 
+		            var rs = s.indexOf('.'); 
+		            if (rs < 0) { 
+		                rs = s.length; 
+		                s += '.'; 
+		            } 
+		            while (s.length <= rs + 2) { 
+		                s += '0'; 
+		            } 
+		            return s; 
+		        } 
+		         
+		        function fomatFloat(src,pos){    
+		             return Math.round(src*Math.pow(10, pos))/Math.pow(10, pos);    
+		        } 
+		function getLastTd(){
+			var res2=$('table tr:eq(-2) td:nth-child(6)').text();
+			var res=$('table tr:eq(-3) td:nth-child(6)').text();
+			var res3=-res//数值消去-号
+			var res4=$('table tr:eq(-4) td:nth-child(6)').text();//获取倒数第4行第6列单元格数据
+			alert('总金额=' + parseFloat(res4) + '\n'
+			+ '已付金额=' + parseFloat(res3) + '\n'
+			+ '原单应付=' + parseFloat(res4-res3) + '\n' 
+			+ '问题件扣除=' + parseFloat(document.getElementById("wt").value) + '\n' 
+			+ '税点（3%）=' + parseFloat(res4*0.03).toFixed(2) + '\n'
+			+ '开票金额=' + parseFloat(res4*1.03).toFixed(2) + '\n'
+			+ '实际应付=' + parseFloat(res4-res3-parseFloat(document.getElementById("wt").value)+res4*0.03).toFixed(2) + '\n');
+			
+		}
 
-                <!--工具人-->
-                <h2>工具人</h2>
-                <hr>
-                <div class="container center fades">
-                    <div class="col-md-3 col-xs-6 skill-ps skill">
-                        <p><img src="image/web.png" alt="切图"></p>
-                        <p class="ptitle">留白</p>
-                        <p>太懒还没想好放什么</p> 
-                    </div>
-                    <div class="col-md-3 col-xs-6 skill-web skill">
-                        <p><img src="image/css.png" alt="css"></p>
-                        <p class="ptitle">留白</p>
-                        <p>太懒还没想好放什么</p>                    
-                    </div>
-                    <div class="col-md-3 col-xs-6 skill-js skill">
-                        <p><img src="image/js.png" alt="js"></p>
-                        <p class="ptitle">留白</p>
-                        <p>太懒还没想好放什么</p> 
-                    </div>
-                    <div class="col-md-3 col-xs-6 skill-h5 skill">
-                        <p><img src="image/h5.png" alt="h5"></p>
-                        <p class="ptitle">留白</p>
-                        <p>太懒还没想好放什么</p> 
-                    </div>
-                </div>
-            </div>
-            <div id="section3" class="section">
-                <h2>唐老鸭</h2>
-                <hr>
-                <div class="container center fades">
-                    <div class="col-md-3 col-xs-6 skill-ps skill">
-                        <p><img src="image/web.png" alt="切图"></p>
-                        <p class="ptitle">留白</p>
-                        <p>太懒还没想好放什么</p> 
-                    </div>
-                    <div class="col-md-3 col-xs-6 skill-web skill">
-                        <p><img src="image/css.png" alt="css"></p>
-                        <p class="ptitle">留白</p>
-                        <p>太懒还没想好放什么</p>                    
-                    </div>
-                    <div class="col-md-3 col-xs-6 skill-js skill">
-                        <p><img src="image/js.png" alt="js"></p>
-                        <p class="ptitle">留白</p>
-                        <p>太懒还没想好放什么</p> 
-                    </div>
-                    <div class="col-md-3 col-xs-6 skill-h5 skill">
-                        <p><img src="image/h5.png" alt="h5"></p>
-                        <p class="ptitle">留白</p>
-                        <p>太懒还没想好放什么</p> 
-                    </div>
-                </div>
-            </div>
-               <div id="section4" class="section">
-                 <h2>米奇</h2>
-                <hr>
-                <div class="container center fades">
-               
-                 
-                    <div class="col-md-3 col-xs-6">
-                        <div class="imgbox">
-                            <img src="image/01.jpg" alt="作品配图">
-                        </div>
-                        <a href="http://www.funnifunni.com/Funni/index.html" target="_blank">
-                            <div class="zp-cover">
-                                <h4>火星文</h4>
-                                <p>￥%！@……&*</p>
-                                <img src="image/search.png" alt="查看">
-                            </div>
-                        </a>
-                    </div>
-                    
-                    
-                   
-                    <div class="col-md-3 col-xs-6 ">
-                        <div class="imgbox">
-                            <img src="image/04.jpg" alt="作品配图">
-                        </div>
-                        <a href="http://www.funnifunni.com/Funni/aboutUs.html" target="_blank">
-                            <div class="zp-cover">
-                                <h4>火星文</h4>
-                                <p>￥%！@……&*</p>
-                                <img src="image/search.png" alt="查看">
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-3 col-xs-6 ">
-                        <div class="imgbox">
-                            <img src="image/05.jpg" alt="作品配图">
-                        </div>
-                        <a href="http://www.ifunk.cn/" target="_blank">
-                            <div class="zp-cover">
-                                <h4>火星文</h4>
-                                <p>￥%！@……&*</p>
-                                <img src="image/search.png" alt="查看">
-                            </div>
-                        </a>
-                    </div>
-
-                   
-                    <div class="col-md-3 col-xs-6">
-                        <div class="imgbox">
-                            <img src="image/08.jpg" alt="作品配图">
-                        </div>
-                        <a href="https://github.com/jinsenhao/jinsenhao.GitHub.io" target="_blank">
-                            <div class="zp-cover">
-                                <h4>火星文</h4>
-                                <p>￥%！@……&*</p>
-                                <img src="image/search.png" alt="查看">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="section5" class="section">
-                <h2>米妮</h2>
-                <hr>
-                <div class="container center fades">
-                    <div class="col-md-3 col-xs-6">
-                        <div class="wrap-box">
-                            <div class="circle-wrap clip-auto">
-                                <div class="left-clip percent"></div>
-                                <div class="right-clip percent"></div>
-                            </div>
-                            <div class="circle-num">
-                                <span>1</span>%
-                            </div>
-                        </div>
-                        <p class="ptitle">一</p>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="wrap-box">
-                            <div class="circle-wrap clip-auto">
-                                <div class="left-clip percent"></div>
-                                <div class="right-clip percent"></div>
-                            </div>
-                            <div class="circle-num">
-                                <span>1</span>%
-                            </div>
-                        </div>
-                        <p class="ptitle">二</p>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="wrap-box">
-                            <div class="circle-wrap clip-auto">
-                                <div class="left-clip percent"></div>
-                                <div class="right-clip percent"></div>
-                            </div>
-                            <div class="circle-num">
-                                <span>1</span>%
-                            </div>
-                        </div>
-                        <p class="ptitle">三</p>
-                    </div>
-                    <div class="col-md-3 col-xs-6">
-                        <div class="wrap-box">
-                            <div class="circle-wrap clip-auto">
-                                <div class="left-clip percent"></div>
-                                <div class="right-clip percent"></div>
-                            </div>
-                            <div class="circle-num">
-                                <span>1</span>%
-                            </div>
-                        </div>
-                        <p class="ptitle">四</p>
-                    </div>
-                </div>
-            </div>
-            <div id="section6" class="section">
-                <h2>黛丝</h2>
-                <hr>
-                <div class="container center fades">
-                   <h2>先空着吧</h2>
-                   
-                </div>
-            </div>
-            <div id="section7" class="section">
-                <h2>留言板</h2>
-                 <div id="container"></div>
-                <link rel="stylesheet" href="https://billts.site/extra_css/gitment.css">
-                     <script src="https://billts.site/js/gitment.js"></script>
-                        <script>
-                            var gitment = new Gitment({
-                            id: 'JSH', // 可选。默认为 location.href
-                            owner: 'jinsenhao',
-                            repo: 'jinsenhao.github.io',
-                            oauth: {
-                            client_id: 'cfe8bbff2723e16742fd',
-                            client_secret: 'b1dd47335c2f504a1dcb848e0e605c6a4ef81686',
-                                   },
-                                    })
-                            gitment.render('container')
-                        </script>
-            </div>
-        </div>
-           
-        <p class="center beian">© JSH | <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action">浙ICP备16004270号</a></p>
-
-    </div>
-    <script src="js/jquery-1.11.1.min.js"></script>
-    <script src="js/mycv.js"></script>
-    <script>
-        (function() {
-            //百度自动链接推送
-            var bp = document.createElement('script');
-            var curProtocol = window.location.protocol.split(':')[0];
-            if (curProtocol === 'https') {
-                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-            } else {
-                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-            }
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(bp, s);
-        })();
-    </script>
-
-</body>
-
+	</script>
 </html>
