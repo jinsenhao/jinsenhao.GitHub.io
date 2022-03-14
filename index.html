@@ -131,12 +131,12 @@
 			var res4=$('table tr:eq(-4) td:nth-child(6)').text();//获取倒数第4行第6列单元格数据
 			var date = new Date
 			swal('安沐珂&中通' + date.getMonth() + '月对账单','总金额=' + parseFloat(res4) + '\n'
-			+ '已付金额=' + parseFloat(res3) + '\n'
+			+ '已付金额=' + parseFloat(res3).toFixed(2) + '\n'
 			+ '原单应付=' + parseFloat(res4-res3).toFixed(2) + '\n' 
-			+ '问题件扣除=' + parseFloat(document.getElementById("wt").value*0.7) + '\n' 
-			+ '税点（3%）=' + parseFloat(res4*0.03).toFixed(2) + '\n'
-			+ '开票金额=' + parseFloat(res4*1.03).toFixed(2) + '\n'
-			+ '实际应付=' + parseFloat(res4-res3-parseFloat(document.getElementById("wt").value*0.7)+res4*0.03).toFixed(2) + '\n');
+			+ '问题件扣除=' + parseFloat(document.getElementById("wt").value*0.7).toFixed(2) + '\n' 
+			+ '税点（3%）=' + parseFloat((res4-document.getElementById("wt").value*0.7)*0.03).toFixed(2) + '\n'
+			+ '开票金额=' + parseFloat(res4*1.03 - document.getElementById("wt").value*0.721).toFixed(2) + '\n'
+			+ '实际应付=' + parseFloat(res4-res3-parseFloat(document.getElementById("wt").value*0.7)+(res4-document.getElementById("wt").value*0.7)*0.03).toFixed(2) + '\n');
 			
 		}
 
