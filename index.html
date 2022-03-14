@@ -5,9 +5,9 @@
 		<title></title>
 		<script src="js/jquery-3.6.0.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/xlsx.core.min.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/ys.js" type="text/javascript" charset="utf-8"></script>
-		<link href="css/style.css" rel="stylesheet" />
-		<link href="css/ys.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+		<script type="text/javascript" src="js/sweetalert-dev.js"></script>
+
 		<style>
 			.alert {
 				width: 20%;
@@ -131,13 +131,14 @@
 			var res=$('table tr:eq(-3) td:nth-child(6)').text();
 			var res3=-res//数值消去-号
 			var res4=$('table tr:eq(-4) td:nth-child(6)').text();//获取倒数第4行第6列单元格数据
-			alert('总金额=' + parseFloat(res4) + '\n'
+			var date = new Date
+			swal('安沐珂&中通' + date.getMonth() + '月对账单','总金额=' + parseFloat(res4) + '\n'
 			+ '已付金额=' + parseFloat(res3) + '\n'
-			+ '原单应付=' + parseFloat(res4-res3) + '\n' 
-			+ '问题件扣除=' + parseFloat(document.getElementById("wt").value) + '\n' 
+			+ '原单应付=' + parseFloat(res4-res3).toFixed(2) + '\n' 
+			+ '问题件扣除=' + parseFloat(document.getElementById("wt").value*0.7) + '\n' 
 			+ '税点（3%）=' + parseFloat(res4*0.03).toFixed(2) + '\n'
 			+ '开票金额=' + parseFloat(res4*1.03).toFixed(2) + '\n'
-			+ '实际应付=' + parseFloat(res4-res3-parseFloat(document.getElementById("wt").value)+res4*0.03).toFixed(2) + '\n');
+			+ '实际应付=' + parseFloat(res4-res3-parseFloat(document.getElementById("wt").value*0.7)+res4*0.03).toFixed(2) + '\n');
 			
 		}
 
