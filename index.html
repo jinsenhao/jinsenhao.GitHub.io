@@ -125,10 +125,10 @@
 		             return Math.round(src*Math.pow(10, pos))/Math.pow(10, pos);    
 		        } 
 		function getLastTd(){
-			var res2=$('table tr:eq(-1) td:nth-child(7)').text();
-			var res=$('table tr:eq(-2) td:nth-child(7)').text();
+			var res2=$('table tr:eq(-1) td:nth-child(6)').text();
+			var res=$('table tr:eq(-2) td:nth-child(6)').text();
 			var res3=-res//数值消去-号
-			var res4=$('table tr:eq(-3) td:nth-child(7)').text();//获取倒数第4行第6列单元格数据
+			var res4=$('table tr:eq(-3) td:nth-child(6)').text();//获取倒数第4行第6列单元格数据
 			var date = new Date
 			swal('安沐珂&中通' + date.getMonth() + '月对账单','总金额=' + parseFloat(res4) + '\n'
 			+ '已付金额=' + parseFloat(res3).toFixed(2) + '\n'
