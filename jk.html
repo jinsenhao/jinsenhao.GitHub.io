@@ -8,23 +8,46 @@
 		html,body{
 			margin:0px;
 			padding:0px;}
+		p{
+			text-align:center;
+		}
 		#tp{
 			width: 100%;
 			height: 100%;
+		}
+		#wz{
+			text-align:center;
+			position: absolute;
+			top: 550px;
+			left: 330px;
+			font-weight: bold;
+			font-size: 240%;
 		}
 		
 		#timeDiv{
 			text-align:center;
 			position: absolute;
-			top:300px;
+			top:320px;
 			left: 90px;
-			font-size: 600%;
+			font-size: 720%;
 			letter-spacing:5px;
 			width: 800px;
 			font-weight: bold;
 			color: #25ad65;
 			
 			}
+		#timeDiv2{
+			text-align:center;
+			position: absolute;
+			top:190px;
+			left: 90px;
+			font-size: 530%;
+			letter-spacing:5px;
+			width: 800px;
+			font-weight:bold;
+			color: #25ad65;
+			
+			}	
 		
 		</style>
 		<script type="text/javascript">
@@ -47,10 +70,11 @@
 				var hour = date.getHours();
 				var minutes = date.getMinutes();
 				var second = date.getSeconds();
-				var timestr = month + "月" + check(day) + "日  " + check(hour)
-						+ ":" + check(minutes) + ":" + check(second);
+				var timestr2 = month + "月" + check(day) + "日  "
+				var timestr = check(hour) + ":" + check(minutes) + ":" + check(second);
 				//将系统时间设置到div元素中
 				timeDiv.innerHTML = timestr;
+				timeDiv2.innerHTML = timestr2;
 			}
 			//每隔1秒调用一次displayTime函数
 			function start(){
@@ -62,7 +86,9 @@
 		<div  id = "background" >
 			<div  class = "bg-photo bg-photo-1" src="./img/jk.jpg"  style = "display: block;" >
 					<div id="timeDiv"></div>
-				<img id="tp" src="./img/jk.jpg" />
+					<div id="timeDiv2"></div>
+					<div id="wz"><p contenteditable="true">灵源村西姚村卡点</p></div>
+				<img id="tp" src="./img/jk2.jpg" />
 			</div>
 		</div>
 	</body>
