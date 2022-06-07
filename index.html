@@ -126,7 +126,7 @@
 		             return Math.round(src*Math.pow(10, pos))/Math.pow(10, pos);    
 		        } 
 		function getLastTd(){
-			var hang=parseFloat(document.getElementById("wt2")
+			var hang=$('document.getElementById("wt2")').text();
 			var res2=$('table tr:eq(-1) td:nth-child(hang)').text();
 			var res=$('table tr:eq(-2) td:nth-child(hang)').text();
 			var res3=-res//数值消去-号
