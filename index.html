@@ -44,6 +44,7 @@
 		<div>数据列： <input type="text" id="wt2" />列</div> 
 		<button id="btn">获取本地excel数据</button>
 		<button  class="alert" onclick="getLastTd()">开始计算</button>
+		<button  class="alert" onclick="getLastTw()">免税计算</button>
 		<div style="width: 100%;text-align: center;margin-top: 10px;" 
 		id="tableContainer">
 		</div>
@@ -140,6 +141,20 @@
 			+ '税点（3%）=' + parseFloat((res4-document.getElementById("wt").value*0.7)*0.03).toFixed(2) + '\n'
 			+ '开票金额=' + parseFloat(res4*1.03 - document.getElementById("wt").value*0.721).toFixed(2) + '\n'
 			+ '实际应付=' + parseFloat(res4-res3-parseFloat(document.getElementById("wt").value*0.7)+(res4-document.getElementById("wt").value*0.7)*0.03).toFixed(2) + '\n');
+			
+		}
+		function getLastTw(){
+			var res2=$('table tr:eq(-1) td:nth-child(8)').text();
+			var res=$('table tr:eq(-2) td:nth-child(8)').text();
+			var res3=-res//数值消去-号
+			var res4=$('table tr:eq(-3) td:nth-child(8)').text();//获取倒数第4行第6列单元格数据
+			var date = new Date
+			swal('安沐珂&中通' + date.getMonth() + '月对账单','总金额=' + parseFloat(res4) + '\n'
+			+ '已付金额=' + parseFloat(res3).toFixed(2) + '\n'
+			+ '原单应付=' + parseFloat(res4-res3).toFixed(2) + '\n' 
+			+ '问题件扣除=' + parseFloat(document.getElementById("wt").value*0.7).toFixed(2) + '\n' 
+			+ '开票金额=' + parseFloat(res4 - document.getElementById("wt").value*0.721).toFixed(2) + '\n'
+			+ '实际应付=' + parseFloat(res4-res3-parseFloat(document.getElementById("wt").value*0.7)).toFixed(2) + '\n');
 			
 		}
 
