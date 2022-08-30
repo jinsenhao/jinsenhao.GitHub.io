@@ -54,6 +54,7 @@ function MumuQrcode(options = {}, onSuccess) {
   this.__init()
 
   return this
+  window.location.href='./index.html';
 }
 
 MumuQrcode.prototype.__init = function () {
