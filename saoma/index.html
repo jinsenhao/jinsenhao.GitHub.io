@@ -12,10 +12,12 @@
   <script type="text/javascript" src="//wap.cmread.com/rbc/t/content/repository/ues/js/s109/vconsole.js"></script>
   <script type="text/javascript">
     var vConsole = new VConsole();
+	var name = sessionStorage.getItem("name");
   </script>
 
   <link rel="stylesheet" href="./css/style.css">
-  <script src="./js/flexible.js"></script>
+  <script src="./js/flexible.js">
+  </script>
 
 </head>
 
@@ -23,12 +25,13 @@
   <div id="app">
     <div class="btnBox">
       <a href="./one.html">监听一次</a>
-      <a href="./sastain.html">持续监听</a>
-      <a href="./higin.html">高清识别</a>
+	  <div id="cc" >cc</div>
     </div>
   </div>
 
 
 </body>
-
+<script type="text/javascript">
+document.getElementById('cc').innerText= name;
+  </script>
 </html>
