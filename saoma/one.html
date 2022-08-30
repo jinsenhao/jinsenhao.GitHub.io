@@ -25,9 +25,11 @@
   <script src="./mumu-qrcode/index.js"></script>
   <script>
     new MumuQrcode({}, (code) => {
-      console.log(code)
-      alert(code)
+	  var name = code
+	  sessionStorage.setItem("name")
+	  location.replace("index.html");
     })
+	
   </script>
 
 </body>
