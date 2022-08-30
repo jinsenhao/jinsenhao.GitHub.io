@@ -124,14 +124,6 @@ MumuQrcode.prototype.start = function () {
     this.trackStatus = !this.trackStatus
     this.openTrack()
   })
-  const box2 = document.createElement('div')
-  box2.className = 'box2'
-  box2.innerText = '跳转'
-  this.box2Dom = box2
-  box2.addEventListener('click', () => {
-    	window.location.href='./index.html';
-  })
-
   this.addStyle()
   this.openScan()
 }
