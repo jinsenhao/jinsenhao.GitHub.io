@@ -7,10 +7,12 @@
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>杭州市扫码通行</title>
+  <script type="text/javascript" src="//wap.cmread.com/rbc/t/content/repository/ues/js/s109/vconsole.js"></script>
 
   <!-- 移动端输出错误 -->
-  <script type="text/javascript">
-  </script>
+ <script type="text/javascript">
+   var vConsole = new VConsole();
+ </script>
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/flexible.js">
   </script>
@@ -31,6 +33,9 @@
 </body>
 	<script type="text/javascript">
 		ca = document.cookie;
-		document.getElementById("cc").innerHTML = ca ;	  
+		let str =ca;
+		let index = str.indexOf("communityCode%3D");
+		let result = str.substr(index + 1,str.length);
+		document.getElementById("cc").innerHTML = result ;	  
 	</script>
 </html>
