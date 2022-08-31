@@ -34,20 +34,8 @@
 	<script type="text/javascript">
 		ca = document.cookie;
 		let str =ca;
-		let index = str.indexOf("communityCode%3D");
+		let index = str.indexOf("communityName%3D");
 		let result = str.substr(index + 1,str.length);
 		document.getElementById("cc").innerHTML = result ;	
-		//清空cookie
-				function clearCookie() {
-					var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
-					if (keys) {
-						for (var i = keys.length; i--;) {
-							document.cookie = keys[i] + '=0;path=/;expires=' + new Date(0).toUTCString();//清除当前域名下的,例如：m.kevis.com
-							document.cookie = keys[i] + '=0;path=/;domain=' + document.domain + ';expires=' + new Date(0).toUTCString();//清除当前域名下的，例如 .m.kevis.com
-							document.cookie = keys[i] + '=0;path=/;domain=kevis.com;expires=' + new Date(0).toUTCString();//清除一级域名下的或指定的，例如 .kevis.com
-						}
-					}
-					console.log('已清除');
-				}
 	</script>
 </html>
