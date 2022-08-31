@@ -32,13 +32,6 @@
 </body>
 	<script type="text/javascript">
 		ca = document.cookie;
-		function getCaption(obj, text){
-		    let index = obj.lastIndexOf(text) + text.length-1;
-		    obj = obj.substring(index+1,obj.length);
-		    return obj;
-		 }
-		 let str="communityCode";
-		 b = getCaption(str,ca);
-		document.getElementById("cc").innerHTML = b ;	  
+		document.getElementById("cc").innerHTML = ca;	  
 	</script>
 </html>
