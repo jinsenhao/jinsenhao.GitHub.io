@@ -12,28 +12,33 @@
   <script type="text/javascript" src="//wap.cmread.com/rbc/t/content/repository/ues/js/s109/vconsole.js"></script>
   <script type="text/javascript">
     var vConsole = new VConsole();
-	function getCookie(cname){
-	
-	    var ca = document.cookie;
-		document.getElementById("cc").innerHTML = ca;
-	
-	}
   </script>
-
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/flexible.js">
   </script>
-
+  <script type="text/javascript">
+	  function getCookie(cname){
+	  	var ca = document.cookie;
+	
+	  	//document.getElementById("cc").innerHTML = 'ca';
+	  
+	  }
+  </script>
 </head>
 
 <body οnlοad="getCookie()">
   <div id="app">
     <div class="btnBox">
       <a href="./one.html">监听一次</a>
-	  <div id="cc" >cc</div>
+	  <a id="cc" >ss</a>
+	  
     </div>
   </div>
-
-
 </body>
+	<script type="text/javascript">
+		ca = document.cookie;
+		document.getElementById("cc").innerHTML = ca;
+		  
+		  
+	</script>
 </html>
