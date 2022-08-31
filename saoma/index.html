@@ -35,7 +35,7 @@
 		ca = document.cookie;
 		let str =ca;
 		let index = str.indexOf("communityName%3D");
-		let result = str.substr(index + 16,str.length);
+		let result = decodeURI(str.substr(index + 16,str.length));
 		document.getElementById("cc").innerHTML = result ;	
 	</script>
 </html>
