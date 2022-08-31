@@ -1,41 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.ico" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link type="favicon" rel="shortcut icon" href="img/favicon.ico" />
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>杭州市扫码通行</title>
-  <script type="text/javascript" src="//wap.cmread.com/rbc/t/content/repository/ues/js/s109/vconsole.js"></script>
-
-  <!-- 移动端输出错误 -->
- <script type="text/javascript">
-   var vConsole = new VConsole();
- </script>
   <link rel="stylesheet" href="./css/style.css">
   <script src="./js/flexible.js">
   </script>
+  <style type="text/css">
+  html,body{
+  	height: 0px;
+  	width: 0%;
+  	margin:0px;
+  	padding:0px;}
+  p{
+  	text-align:center;
+  }
+  #background{
+  	position : absolute;
+  	width : 100%;
+  	height : 100%;
+  	background-image: url(./img/jk5.jpg);
+  	background-repeat: no-repeat;
+  	background-size: 100% 100%;
+  }
+  #wz{
+  	text-align:center;
+  	margin-top:150px;
+  	font-weight: bold;
+  	font-size: 24%;
+  }
+  
+  #timeDiv{
+  	text-align:center;
+  	margin-top: 35%;
+  	font-size: 85%;
+  	letter-spacing:5px;
+  	font-weight: bold;
+  	color: #25ad65;
+  	
+  	}
+  #timeDiv2{
+  	text-align:center;
+  	margin-top: -32%;
+  	font-size: 56%;
+  	letter-spacing:5px;
+  	font-weight:bold;
+  	color: #25ad65;
+  	
+  	}	
+  
+  </style>
   <script type="text/javascript">
-	  //function getCookie(cname){
-	  	//var ca = document.cookie;
-	  	//document.getElementById("cc").innerHTML = 'ca';
-	  }
+      //判断时间是否为个位数，如果时间为个位数就在时间之前补上一个“0”
+  	function check(val) {
+  		if (val < 10) {
+  			return ("0" + val);
+  		} 
+  		else {
+  			return (val);
+  		}
+  	}
+  	function displayTime() {
+  		//获取div元素
+  		var timeDiv=document.getElementById("timeDiv");
+  		//获取系统当前的年、月、日、小时、分钟、毫秒
+  		var date = new Date();
+  		var month = date.getMonth() + 1;
+  		var day = date.getDate();
+  		var hour = date.getHours();
+  		var minutes = date.getMinutes();
+  		var second = date.getSeconds();
+  		var timestr2 = month + "月" + check(day) + "日  "
+  		var timestr = check(hour) + ":" + check(minutes) + ":" + check(second);
+  		//将系统时间设置到div元素中
+  		timeDiv.innerHTML = timestr;
+  		timeDiv2.innerHTML = timestr2;
+  	}
+  	//每隔1秒调用一次displayTime函数
+  	function start(){
+          window.setInterval("displayTime()",1000)//单位是毫秒
+  }
   </script>
 </head>
-<body >
-  <div id="app">
-    <div class="btnBox">
-      <a href="./one.html">监听一次</a>
-	  </div>
-	  <div id="cc" class="cs">ss</div>
-  </div>
+<body onload="start();">
+	<div  id = "background" >
+		<div id="app">
+				<div id="timeDiv"></div>
+				<div id="timeDiv2" href="./one.html"></div>
+				</div>
+				<p id="wz" contenteditable="true">天和华丰苑</p>
+				</div>
+				
 </body>
 	<script type="text/javascript">
 		ca = document.cookie;
 		let str =ca;
 		let index = str.indexOf("communityName%3D");
 		let result = decodeURI(str.substr(index + 16,str.length));
-		document.getElementById("cc").innerHTML = result ;	
+		document.getElementById("wz").innerHTML = result ;	
 	</script>
 </html>
