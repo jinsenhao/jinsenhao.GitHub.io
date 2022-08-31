@@ -124,6 +124,7 @@ MumuQrcode.prototype.start = function () {
     this.trackStatus = !this.trackStatus
     this.openTrack()
   })
+
   this.addStyle()
   this.openScan()
 }
