@@ -36,6 +36,13 @@
 		let str =ca;
 		let index = str.indexOf("communityCode%3D");
 		let result = str.substr(index + 1,str.length);
-		document.getElementById("cc").innerHTML = result ;	  
+		document.getElementById("cc").innerHTML = result ;	
+		function clearAllCookie() {
+		    var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+		    if(keys) {
+		        for(var i = keys.length; i--;)
+		        document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+		    }
+		}
 	</script>
 </html>
