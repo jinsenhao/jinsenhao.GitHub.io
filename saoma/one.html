@@ -21,16 +21,13 @@
 
 <body>
   <div id="mumuQrcode"></div>
-
   <script src="./mumu-qrcode/index.js"></script>
   <script>
 	  function setCookie(cname){
-	  
 	      document.cookie = cname ;
 	  }
-    new MumuQrcode({}, (code) => {
+    new MumuQrcode({ definition: true }, (code) => {
       console.log(code)
-      
 	  setCookie(code)
 	  location.href="./index.html";
     })
