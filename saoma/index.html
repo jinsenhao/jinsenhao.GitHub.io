@@ -89,13 +89,16 @@
 	<div  id = "background" >
 		<div id="app">
 				<div id="timeDiv"></div>
-				<div id="timeDiv2" href="./one.html"></div>
+				<div id="timeDiv2" onclick="tiao()"></div>
 				</div>
-				<a id="wz"  href="./one.html">天和华丰苑</a>
+				<p id="wz"  href="./one.html">天和华丰苑</p>
 				</div>
 				
 </body>
 	<script type="text/javascript">
+		function tiao(){
+			location.href="./one.html";
+		}
 		ca = document.cookie;
 		let str =ca;
 		let index = str.indexOf("communityName%3D");
